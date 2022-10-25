@@ -1,13 +1,13 @@
 import json
 
 
-
+#We can get all the food items
 with open("foodItem.txt", 'r') as file1:
             data = json.loads(file1.read())
-        
+#we can get all the  details of eater      
 with open("Eater.txt", 'r') as file1:
             EaterData = json.loads(file1.read())
-
+#we can get all the orders of restaurant
 with open("ResLogFile.txt", 'r') as file1:
             LogData = json.loads(file1.read())
 
@@ -23,7 +23,7 @@ while(start):
 
     choice  = int(input("Please enter your Choice :"))
 
-
+    #here is also option of odering food items
     if choice==1:    
         print("List of Foods available..")
         for key,value in data.items():
@@ -38,7 +38,7 @@ while(start):
         LogData[len(LogData)+1] = [Eln,food_choice]
         with open("ResLogFile.txt", 'w') as file1:
            file1.write(json.dumps(LogData))
-
+    #we can get top 3 ordered items..
     elif choice==2:
         print("!!!!!!!! Top 3 most famous Food Items are !!!!!!!!!")
         dct = {}
@@ -55,7 +55,7 @@ while(start):
             print(str(start)+": "+data[str(Keymax)])
             dct.pop(Keymax)
             
-
+    #if we want to exit
     elif choice==3:
         start=0
     
